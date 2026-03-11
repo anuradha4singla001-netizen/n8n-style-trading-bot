@@ -1,0 +1,220 @@
+/* ═══════════════════════════════════════════════════
+   TradeFlow Design System  –  global.css
+   All UI tokens, resets, typography, utilities
+═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── Tokens ── */
+:root {
+  /* Backgrounds */
+  --bg-base:      #04080f;
+  --bg-panel:     #080d16;
+  --bg-surface:   #0c1420;
+  --bg-elevated:  #0f1e30;
+  --bg-hover:     #122030;
+
+  /* Borders */
+  --border-dim:   #0f1e30;
+  --border-soft:  #172438;
+  --border-mid:   #1e3450;
+
+  /* Text */
+  --text-dim:     #2a4060;
+  --text-muted:   #3a5470;
+  --text-sub:     #5a7a9a;
+  --text-body:    #8aa8c8;
+  --text-label:   #b8d0e8;
+  --text-bright:  #ddeeff;
+  --text-white:   #f0f8ff;
+
+  /* Accent */
+  --gold:         #f0b429;
+  --gold-dim:     #2d1e04;
+  --gold-glow:    #f0b42930;
+  --green:        #00e5a0;
+  --green-dim:    #003d28;
+  --green-glow:   #00e5a020;
+  --red:          #ff4d6a;
+  --red-dim:      #3d0010;
+  --blue:         #3d9eff;
+  --blue-dim:     #0a2444;
+  --purple:       #a78bfa;
+  --purple-dim:   #1e1040;
+  --orange:       #ff8c42;
+
+  /* Node type colors */
+  --trigger:   var(--gold);
+  --condition: var(--blue);
+  --indicator: var(--purple);
+  --action:    var(--green);
+  --alert:     var(--red);
+
+  /* Spacing */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px;
+
+  /* Radius */
+  --r-sm: 4px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px;
+
+  /* Font */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+
+  /* Transitions */
+  --t-fast: 0.1s ease;
+  --t-mid:  0.2s ease;
+  --t-slow: 0.3s ease;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbars ── */
+::-webkit-scrollbar          { width: 4px; height: 4px; }
+::-webkit-scrollbar-track    { background: var(--bg-panel); }
+::-webkit-scrollbar-thumb    { background: var(--border-mid); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Utilities ── */
+.mono      { font-family: var(--font-mono); }
+.text-dim  { color: var(--text-dim); }
+.text-sub  { color: var(--text-sub); }
+.text-body { color: var(--text-body); }
+.text-label{ color: var(--text-label); }
+.text-bright{ color: var(--text-bright); }
+.text-white{ color: var(--text-white); }
+.text-gold  { color: var(--gold); }
+.text-green { color: var(--green); }
+.text-red   { color: var(--red); }
+.text-blue  { color: var(--blue); }
+.text-purple{ color: var(--purple); }
+
+.flex        { display: flex; }
+.flex-col    { display: flex; flex-direction: column; }
+.items-center{ align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: 4px; } .gap-2 { gap: 8px; } .gap-3 { gap: 12px; }
+.flex-1 { flex: 1; }
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+
+/* ── Components ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-soft);
+  background: var(--bg-surface);
+  color: var(--text-label);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  white-space: nowrap;
+}
+.btn:hover { filter: brightness(1.2); border-color: var(--text-sub); }
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--green), #00c090);
+  border-color: transparent;
+  color: #001810;
+  font-weight: 700;
+}
+.btn-danger {
+  background: var(--red-dim);
+  border-color: var(--red);
+  color: var(--red);
+}
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-sub);
+}
+.btn:disabled {
+  opacity: 0.4; cursor: default; pointer-events: none;
+}
+
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 2px 7px; border-radius: 100px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+}
+.badge-green { background: var(--green-dim); color: var(--green); border: 1px solid var(--green)30; }
+.badge-red   { background: var(--red-dim);   color: var(--red);   border: 1px solid var(--red)30; }
+.badge-gold  { background: var(--gold-dim);  color: var(--gold);  border: 1px solid var(--gold)30; }
+.badge-blue  { background: var(--blue-dim);  color: var(--blue);  border: 1px solid var(--blue)30; }
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-lg);
+  padding: var(--sp-4);
+}
+
+.divider {
+  width: 1px; align-self: stretch;
+  background: var(--border-soft);
+  flex-shrink: 0;
+}
+.divider-h {
+  height: 1px; width: 100%;
+  background: var(--border-dim);
+}
+
+input, select, textarea {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-md);
+  color: var(--text-label);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 7px 10px;
+  outline: none;
+  transition: border-color var(--t-fast);
+  width: 100%;
+}
+input:focus, select:focus { border-color: var(--text-sub); }
+input::placeholder { color: var(--text-muted); }
+label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp    { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn    { from { opacity:0; } to { opacity:1; } }
+@keyframes blink     { 0%,100%{opacity:.5} 50%{opacity:1} }
+@keyframes pulse     { 0%,100%{opacity:1} 50%{opacity:.35} }
+@keyframes dashFlow  { to { stroke-dashoffset: -32; } }
+@keyframes spin      { to { transform: rotate(360deg); } }
+@keyframes glow      { 0%,100%{opacity:.7} 50%{opacity:1} }
+@keyframes slideIn   { from{transform:translateX(8px);opacity:0} to{transform:translateX(0);opacity:1} }
+
+.anim-fadeUp   { animation: fadeUp 0.2s ease; }
+.anim-fadeIn   { animation: fadeIn 0.3s ease; }
+.anim-blink    { animation: blink 1.2s ease infinite; }
+.anim-pulse    { animation: pulse 1.4s ease infinite; }
+.anim-spin     { animation: spin 1s linear infinite; }
+.anim-slideIn  { animation: slideIn 0.2s ease; }

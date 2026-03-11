@@ -1,0 +1,17 @@
+{
+  "name": "tradeflow",
+  "version": "1.0.0",
+  "description": "Visual algorithmic trading bot platform with real-time strategy execution",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
+    "build": "npm run build --workspace=frontend",
+    "install:all": "npm install && npm install --workspace=backend && npm install --workspace=frontend",
+    "lint": "eslint backend/src frontend/src --ext .js,.ts,.jsx,.tsx"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^8.56.0"
+  }
+}

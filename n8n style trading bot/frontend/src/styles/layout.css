@@ -1,0 +1,293 @@
+/* ═══════════════════════════════════════════
+   Layout & Dashboard  –  layout.css
+═══════════════════════════════════════════ */
+
+/* ── App shell ── */
+.app-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Top Bar ── */
+.topbar {
+  height: 52px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border-dim);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 10px;
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 4px;
+}
+.topbar-logo-icon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 0 14px var(--gold-glow);
+  flex-shrink: 0;
+}
+.topbar-logo-name {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text-white);
+  line-height: 1.1;
+}
+.topbar-logo-sub {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+}
+
+/* Tabs */
+.topbar-tabs {
+  display: flex;
+  gap: 2px;
+}
+.topbar-tab {
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  color: var(--text-sub);
+  border: 1px solid transparent;
+  transition: all var(--t-fast);
+}
+.topbar-tab:hover { color: var(--text-label); background: var(--bg-surface); }
+.topbar-tab.active {
+  color: var(--text-white);
+  background: var(--bg-elevated);
+  border-color: var(--border-soft);
+}
+
+/* Ticker chips */
+.ticker-chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 11px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 7px;
+  cursor: default;
+}
+.ticker-sym {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+.ticker-price {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  animation: glow 2s ease infinite;
+}
+.ticker-dir {
+  font-size: 9px;
+  font-family: var(--font-mono);
+}
+
+/* Stat chips */
+.stat-chip {
+  padding: 3px 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+  text-align: center;
+}
+.stat-chip-key {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+.stat-chip-val {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* WS status */
+.ws-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Main workspace ── */
+.workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Left sidebar ── */
+.sidebar {
+  width: 240px;
+  background: var(--bg-panel);
+  border-right: 1px solid var(--border-dim);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar-section {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-dim);
+}
+.sidebar-section-title {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.strategy-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--t-fast);
+  margin-bottom: 3px;
+}
+.strategy-row:hover { background: var(--bg-surface); border-color: var(--border-soft); }
+.strategy-row.active { background: var(--bg-elevated); border-color: var(--border-mid); }
+
+.strategy-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+
+.strategy-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-label);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.strategy-meta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-dim);
+}
+
+/* ── Right panel ── */
+.right-panel {
+  width: 272px;
+  background: var(--bg-panel);
+  border-left: 1px solid var(--border-dim);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.panel-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-dim);
+}
+.panel-tab {
+  flex: 1;
+  padding: 9px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all var(--t-fast);
+}
+.panel-tab.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* ── Status bar ── */
+.statusbar {
+  height: 24px;
+  background: var(--bg-panel);
+  border-top: 1px solid var(--border-dim);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.statusbar-text {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+/* ── Portfolio panel ── */
+.portfolio-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 10px 12px;
+}
+.portfolio-stat {
+  padding: 8px 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-md);
+}
+.portfolio-stat-key {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 3px;
+}
+.portfolio-stat-val {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+/* ── Order log ── */
+.order-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border-dim);
+  transition: background var(--t-fast);
+}
+.order-row:hover { background: var(--bg-surface); }
+
+/* ── Execution log entry ── */
+.exec-entry {
+  padding: 8px 10px;
+  border-radius: 7px;
+  margin-bottom: 5px;
+  background: var(--bg-surface);
+  border-left: 2px solid;
+  animation: fadeUp 0.2s ease;
+}

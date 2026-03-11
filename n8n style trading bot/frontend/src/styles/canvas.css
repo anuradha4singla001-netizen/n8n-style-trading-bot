@@ -1,0 +1,125 @@
+/* ═══════════════════════════════════════════
+   Flow Canvas  –  canvas.css
+═══════════════════════════════════════════ */
+
+.canvas-wrapper {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: var(--bg-base);
+}
+
+.canvas-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Toolbar overlay ── */
+.canvas-toolbar {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  animation: fadeUp 0.3s ease;
+}
+
+.canvas-zoom-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-sub);
+  min-width: 40px;
+  text-align: center;
+}
+
+/* ── Minimap ── */
+.canvas-minimap {
+  position: absolute;
+  bottom: 70px;
+  right: 16px;
+  width: 140px;
+  height: 90px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  opacity: 0.8;
+}
+
+/* ── Node styles (SVG foreignObject not used; SVG-native) ── */
+.node-selected-ring {
+  animation: fadeIn 0.15s ease;
+}
+
+/* ── Edge animations ── */
+.edge-animated {
+  animation: dashFlow 0.8s linear infinite;
+}
+
+/* ── Context menu ── */
+.context-menu {
+  position: fixed;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-md);
+  padding: 4px;
+  z-index: 500;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.7);
+  animation: fadeUp 0.12s ease;
+}
+
+.context-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-label);
+  transition: background var(--t-fast);
+}
+.context-menu-item:hover { background: var(--bg-elevated); }
+.context-menu-item.danger { color: var(--red); }
+
+/* ── Add node popup ── */
+.add-node-menu {
+  position: fixed;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-lg);
+  padding: 6px;
+  z-index: 300;
+  min-width: 200px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.8);
+  animation: fadeUp 0.15s ease;
+}
+
+.add-node-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: background var(--t-fast);
+}
+.add-node-item:hover { background: var(--bg-surface); }
+
+.add-node-icon {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
